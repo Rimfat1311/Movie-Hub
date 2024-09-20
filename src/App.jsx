@@ -1,13 +1,24 @@
-import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import Router
+import Home from './pages/Home';
+import Movies from './pages/Movies';
+import Footer from './components/Footer';
+import TvShows from './pages/TvShows';
+import Navbar from './components/Navbar';
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <h1 className="text-3xl bg-slate-500 font-bold underline">
-      Hello world!
-    </h1>
-    </div>
-  )
+    <Router> {/* Wrap your app in Router */}
+      <div className='bg-neutral-900 h-full'>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tvshows" element={<TvShows />} />
+          <Route path="/movies" element={<Movies />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
